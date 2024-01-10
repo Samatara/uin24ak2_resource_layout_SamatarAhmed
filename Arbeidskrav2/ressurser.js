@@ -95,25 +95,8 @@ const resources = [
     },
  
 
-    function generateHTML() {
-        const bodyElement = document.body;
+    
 
-        resources.forEach(resource => {
-            const categoryElement = document.createElement('div');
-            categoryElement.className="category"
-            categoryElement.innerHTML = `<h2>${resource.category}</h2><p>${resource.text}</p>`;
-
-            const sourcesElement = document.createElement('ul');
-            resource.sources.forEach(source => {
-                const sourceItem = document.createElement('li');
-                sourceItem.innerHTML = `<a href="${source.url}" target="_blank">${source.title}</a>`;
-                sourcesElement.appendChild(sourceItem);
-            });
-
-            categoryElement.appendChild(sourcesElement);
-            bodyElement.appendChild(categoryElement);
-        });
-    }
 
     
 

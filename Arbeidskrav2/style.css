@@ -1,16 +1,29 @@
 body{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
-    
 }
 
-.category{
-   color: green;
-   font-size: 12px;
-   margin: 3rem;
-   display: inline-block;
+
+
+.category {
+    justify-content: space-evenly;
+    display: table-cell;
+    padding: 12px;
+    
+    
+  }
+
+
+.category p{
+display: flex;
+margin: 12px;
 }
 
-.category h2{
-    margin: 25px;
-    
+.category a {
+color: cyan;
+  
+}
+.box{
+    width: 200px;
+    height: inherit;
+    border: 1px solid black;
 }

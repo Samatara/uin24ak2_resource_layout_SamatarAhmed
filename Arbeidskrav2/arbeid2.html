@@ -4,13 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" media="all">
+    <script src="ressurser.js"></script>
     <title>ll</title>
 </head>
 <body>
         <header>RessursArkiv</header>
-        <div id=""></div>
+        
+        <script>
+            
+            function generateHTML() {
+            const bodyElement = document.body;
+
+            resources.forEach(resource => {
+                const categoryElement = document.createElement('div');
+                categoryElement.className="category";
+                const buttonElement= document.createElement("button");
+                buttonElement.innerHTML=`<h2>${resource.category}</h2>`;
+                buttonElement.addEventListener('click', function(){
+                    if (paraElement.style.display === "none") {
+                    paraElement.style.display = "block";
+                    sourcesElement.style.display="block";
+                } else {
+                    paraElement.style.display = "none";
+                    sourcesElement.style.display= "none";
+                }
+
+                });
 
 
-<script src="ressurser.js"></script>
+                categoryElement.appendChild(buttonElement);
+                const paraElement=document.createElement("p");
+                paraElement.innerHTML=resource.text;
+                categoryElement.appendChild(paraElement)
+
+                
+
+                const sourcesElement = document.createElement('ul');
+                resource.sources.forEach(source => {
+                    const sourceItem = document.createElement('li');
+                    sourceItem.innerHTML = `<a href="${source.url}" target="_blank">${source.title}</a>`;
+                    sourcesElement.appendChild(sourceItem);
+                });
+
+                categoryElement.appendChild(sourcesElement);
+                bodyElement.appendChild(categoryElement);
+            });
+            
+        
+
+        }
+        
+        window.onload = function() {
+        generateHTML();}
+        </script>
+        
 </body>
 </html>
