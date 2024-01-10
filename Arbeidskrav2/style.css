@@ -27,3 +27,8 @@ color: cyan;
     height: inherit;
     border: 1px solid black;
 }
+
+.box{
+    display: flex;
+    justify-content: center;
+}
