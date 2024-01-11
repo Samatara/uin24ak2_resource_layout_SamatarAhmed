@@ -136,6 +136,8 @@ function generateHTML() {
         }
 
         });
+       
+        
 
 
         categoryElement.appendChild(buttonElement);

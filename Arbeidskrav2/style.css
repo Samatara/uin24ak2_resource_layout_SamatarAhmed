@@ -28,7 +28,3 @@ color: cyan;
     border: 1px solid black;
 }
 
-.box{
-    display: flex;
-    justify-content: center;
-}
