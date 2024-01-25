@@ -4,16 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" media="all">
-    <script src="ressurser.js"></script>
+    
     <title>ll</title>
 </head>
 <body>
         <header>RessursArkiv</header>
         
         <script>
+                function generateHTML() {
+        const bodyElement = document.body;
+        const texter=document.createElement('div')
+        texter.className="text";
+        let box=null
+
+        resources.forEach(resource => {
+            const categoryElement = document.createElement('div');
+            categoryElement.className="category";
+
+            const buttonElement= document.createElement("button");
+            buttonElement.innerHTML=`<h2>${resource.category}</h2>`;
+
+            const paraElement=document.createElement("p");
+            paraElement.innerHTML=resource.text;
+            paraElement.style.display="none"
+
+            const sourcesElement = document.createElement('ul');
+            resource.sources.forEach(source => {
+                const sourceItem = document.createElement('li');
+                sourcesElement.style.display="none";
+                sourceItem.innerHTML = `<a href="${source.url}" target="_blank">${source.title}</a>`;
+                sourcesElement.appendChild(sourceItem);
+            });
             
+
+            buttonElement.addEventListener('click', function(){
+                if (box){
+                    box.paraElement.style.display="none";
+                    box.sourcesElement.style.display= "none";
+                }
+                if (paraElement.style.display === "none") {
+                paraElement.style.display = "flex";
+                sourcesElement.style.display="block";
+                box= {paraElement,sourcesElement};
+            } else {
+                paraElement.style.display = "none";
+                sourcesElement.style.display= "none";
+                box=null;
+            }
+
+            });
+        
+            
+
+
+            categoryElement.appendChild(buttonElement);
+            categoryElement.appendChild(paraElement)
+            categoryElement.appendChild(sourcesElement);
+            bodyElement.appendChild(categoryElement);
+            
+        });
+        
+        
+
+
+    }
+
+    window.onload = function() {
+    generateHTML();}
         
         </script>
-        
+<script src="ressurser.js"></script>
 </body>
 </html>
