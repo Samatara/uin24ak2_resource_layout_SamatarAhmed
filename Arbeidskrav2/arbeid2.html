@@ -15,61 +15,65 @@
         <script>
                 function generateHTML() {
         const bodyElement = document.body;
+        const borderdiv=document.createElement('div');
+        borderdiv.id="borderdiv";
         let box=null
 
         resources.forEach(resource => {
             const categoryElement = document.createElement('div');
             categoryElement.className="category";
 
-            const buttonElement= document.createElement("button");
-            buttonElement.innerHTML=`<h2>${resource.category}</h2>`;
+            const button= document.createElement("button");
+            button.innerHTML=`<h2>${resource.category}</h2>`;
+        
 
-            const paraElement=document.createElement("p");
-            paraElement.innerHTML=resource.text;
-            paraElement.style.display="none"
+            const para=document.createElement("p");
+            para.innerHTML=resource.text;
+            para.style.display="none"
 
-            const sourcesElement = document.createElement('ul');
+            const sources = document.createElement('ul');
             resource.sources.forEach(source => {
                 const sourceItem = document.createElement('li');
-                sourcesElement.style.display="none";
+                sources.style.display="none";
                 sourceItem.innerHTML = `<a href="${source.url}" target="_blank">${source.title}</a>`;
-                sourcesElement.appendChild(sourceItem);
+                sources.appendChild(sourceItem);
             });
 
             
 
-            buttonElement.addEventListener('click', function(){
+            button.addEventListener('click', function(){
                 if (box){
-                    box.paraElement.style.display="none";
-                    box.sourcesElement.style.display= "none";
+                    box.para.style.display="none";
+                    box.sources.style.display= "none";
                 }
-                if (paraElement.style.display === "none") {
-                paraElement.style.display = "flex";
-                sourcesElement.style.display="block";
-                box= {paraElement,sourcesElement};
+                if (para.style.display === "none") {
+                para.style.display = "flex";
+                sources.style.display="block";
+                box= {para,sources};
             } else {
                 
-                paraElement.style.display = "none";
-                sourcesElement.style.display= "none";
+                para.style.display = "none";
+                sources.style.display= "none";
                 box=null;
             }
 
             });
 
             if(resources.indexOf(resource)==0){
-                paraElement.style.display = "flex";
-                sourcesElement.style.display="block";
-                box= {paraElement,sourcesElement};
-                buttonElement.click();
+                para.style.display = "flex";
+                sources.style.display="block";
+                box= {para,sources};
+                button.click();
             }
 
             
             
 
-            categoryElement.appendChild(buttonElement);
-            categoryElement.appendChild(paraElement)
-            categoryElement.appendChild(sourcesElement);
-            bodyElement.appendChild(categoryElement);
+            categoryElement.appendChild(button);
+            categoryElement.appendChild(para)
+            categoryElement.appendChild(sources);
+            borderdiv.appendChild(categoryElement)
+            bodyElement.appendChild(borderdiv);
             
             
         });

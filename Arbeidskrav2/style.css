@@ -1,13 +1,7 @@
-:root{
-    --black:#2A324B,
-    --b:#58699D,
-    --c:#E1E5EE,
-    --d:#fff,
-}
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 body{
-    font-family:Montserrat;
     margin: 5rem 10rem 10rem 10rem;
 }
 
@@ -25,18 +19,19 @@ header{
 .category {
     display:table-cell;
     justify-content: center;
-    border: 1px solid black;
     padding: 25px;
-    
-    
   }
-
-
-
-
 
 
 .category a {
 color: cyan;
   
+}
+
+button{
+    
+}
+
+#borderdiv{
+    border: 1px solid black;
 }
