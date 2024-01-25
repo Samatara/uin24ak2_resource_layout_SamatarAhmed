@@ -1,31 +1,42 @@
+:root{
+    --black:#2A324B,
+    --b:#58699D,
+    --c:#E1E5EE,
+    --d:#fff,
+}
+
+
 body{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    font-family:Montserrat;
+    margin: 5rem 10rem 10rem 10rem;
+}
+
+header{
+    display: flex;
+    justify-content: flex-start;
+    border: 1px solid black;
+    padding: 25px;
+    font-size: large;
+    margin-bottom: 2rem;
 }
 
 
 
 .category {
-    justify-content: space-evenly;
-    display: table-cell;
-    padding: 12px;
+    display:table-cell;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 25px;
     
     
   }
 
 
-.category p{
-display: flex;
-margin: 12px;
-}
+
+
+
 
 .category a {
 color: cyan;
   
 }
-.box{
-    width: 200px;
-    height: inherit;
-    border: 1px solid black;
-}
-
-
